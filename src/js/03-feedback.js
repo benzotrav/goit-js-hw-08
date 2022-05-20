@@ -4,6 +4,7 @@ const feedbackForm = document.querySelector('.feedback-form');
 
 const key = "feedback-form-state";
 let formData = {}
+
  
 feedbackForm.addEventListener('submit', onFormSubmit);
 feedbackForm.addEventListener('input', throttle(onInputForm, 500));
@@ -14,8 +15,8 @@ function onSaveInfoForm() {
     const savedData = localStorage.getItem(key);
     if (savedData) {
         const {email, message} = JSON.parse(savedData);
-        feedbackForm.email.value = formData.email;
-        feedbackForm.message.value = formData.message;
+        feedbackForm.email.value = email;
+        feedbackForm.message.value = message;
         formData.email = email;
         formData.message = message;
     }
